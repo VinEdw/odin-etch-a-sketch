@@ -21,6 +21,15 @@ html {
   aspect-ratio: 1;
 }
 
+.grid-row {
+  display: flex;
+}
+
+.grid-cell {
+  flex: 1;
+  aspect-ratio: 1;
+}
+
 /* || Grid Resolution Button */
 
 #grid-resolution-button {
