@@ -15,4 +15,11 @@ function createGrid(container, resolution) {
     container.appendChild(row);
   }
 }
+resolutionButton.addEventListener("click", (e) => {
+  const newResolution = +prompt("Enter the number of squares per side of a new grid (between 1 and 100)");
+  if (newResolution > 0 && newResolution <= 100) {
+    createGrid(gridContainer, newResolution);
+  }
+});
+
 createGrid(gridContainer, 16);
