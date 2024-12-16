@@ -15,6 +15,21 @@ function createGrid(container, resolution) {
     container.appendChild(row);
   }
 }
+
+function shiftCellOpacity(cell, opacityChange) {
+  let newOpacity = +cell.dataset.opacity + opacityChange;
+  newOpacity = Math.max(0, Math.min(newOpacity, 1));
+  cell.dataset.opacity = newOpacity;
+}
+
+gridContainer.addEventListener("mouseover", (e) => {
+  const el = e.target;
+  if (el.classList.contains("grid-cell")) {
+    shiftCellOpacity(el, 0.1)
+    el.style.backgroundColor = `rgba(0, 0, 0, ${el.dataset.opacity})`
+  }
+});
+
 resolutionButton.addEventListener("click", (e) => {
   const newResolution = +prompt("Enter the number of squares per side of a new grid (between 1 and 100)");
   if (newResolution > 0 && newResolution <= 100) {
